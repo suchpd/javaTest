@@ -5,37 +5,37 @@ public class TestModel {
     private int id;
     private String gender;
 
-    public TestModel(){
+    public TestModel() {
 
     }
 
-    public TestModel(String name,int id,String gender){
+    public TestModel(String name, int id, String gender) {
         this.name = name;
         this.id = id;
         this.gender = gender;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getGender(){
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(String gender){
+    public void setGender(String gender) {
         this.gender = gender;
     }
 }

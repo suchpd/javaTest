@@ -1,0 +1,21 @@
+
+#数据库
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/shanghai&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/springboot
+    username: root
+    password: suchi0.0
+
+#端口号
+server:
+  port: 8080
+
+#项目名称
+servlet:
+  context-path: /dominatory
+
+#mybatis
+mybatis:
+  mapper-locations: com/such/mapper/*.xml

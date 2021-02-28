@@ -21,35 +21,35 @@ import java.util.List;
 
 @Repository
 public class UserInfoDomain {
-        @Autowired
-        private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
-        public void addUser(){
-                String countSql = "Select count(1) From UserInfo";
-                int count = jdbcTemplate.queryForObject(countSql,Integer.class);
-                count++;
-                String sql = "Insert Into UserInfo (Id,UserName,PassWord) Value (" + count + ",'maomao','123456')";
-                jdbcTemplate.update(sql);
+    public void addUser() {
+        String countSql = "Select count(1) From UserInfo";
+        int count = jdbcTemplate.queryForObject(countSql, Integer.class);
+        count++;
+        String sql = "Insert Into UserInfo (Id,UserName,PassWord) Value (" + count + ",'maomao','123456')";
+        jdbcTemplate.update(sql);
+    }
+
+    public List<UserInfo> getAllUser() {
+        String sql = "SELECT * FROM userInfo";
+
+        List<UserInfo> userList = jdbcTemplate.query(sql, new RowMapper<UserInfo>() {
+            UserInfo user = null;
+
+            @Override
+            public UserInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
+                user = new UserInfo();
+                user.setId(rs.getInt("Id"));
+                user.setUserName(rs.getString("UserName"));
+                user.setPassWord(rs.getString("PassWord"));
+                return user;
+            }
+        });
+        for (UserInfo user : userList) {
+            System.out.println(user.toString());
         }
-
-        public List<UserInfo> getAllUser(){
-                String sql = "SELECT * FROM userInfo";
-
-                List<UserInfo> userList = jdbcTemplate.query(sql, new RowMapper<UserInfo>() {
-                        UserInfo user = null;
-
-                        @Override
-                        public UserInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
-                                user = new UserInfo();
-                                user.setId(rs.getInt("Id"));
-                                user.setUserName(rs.getString("UserName"));
-                                user.setPassWord(rs.getString("PassWord"));
-                                return user;
-                        }
-                });
-                for (UserInfo user : userList) {
-                        System.out.println(user.toString());
-                }
-                return userList;
-        }
+        return userList;
+    }
 }

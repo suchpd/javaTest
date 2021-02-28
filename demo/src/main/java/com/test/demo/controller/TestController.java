@@ -27,10 +27,10 @@ public class TestController {
     private UserInfoService userInfoService;
 
     @GetMapping(value = "getStudent")
-    public List<TestModel> getStudentMap(){
-        TestModel stu1 = new TestModel("stu1",1,"男");
-        TestModel stu2 = new TestModel("stu2",2,"女");
-        TestModel stu3 = new TestModel("stu3",3,"男");
+    public List<TestModel> getStudentMap() {
+        TestModel stu1 = new TestModel("stu1", 1, "男");
+        TestModel stu2 = new TestModel("stu2", 2, "女");
+        TestModel stu3 = new TestModel("stu3", 3, "男");
 
         List<TestModel> list = new ArrayList<>();
 
@@ -45,7 +45,7 @@ public class TestController {
     @GetMapping(value = "getUser")
     public List<UserInfo> list() {
 
-        return  userInfoService.getAllUser();
+        return userInfoService.getAllUser();
 //        String sql = "SELECT * FROM userInfo";
 //        List<UserInfo> userList = jdbcTemplate.query(sql, new RowMapper<UserInfo>() {
 //            UserInfo user = null;
@@ -66,7 +66,7 @@ public class TestController {
     }
 
     @PostMapping(value = "addUser")
-    public String addUser(){
+    public String addUser() {
         userInfoService.addUser();
         return "新增成功";
 //        String sql = "Insert Into UserInfo (Id,UserName,PassWord) Value (1,'maomao','123456')";
