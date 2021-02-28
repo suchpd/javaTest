@@ -19,3 +19,14 @@ servlet:
 #mybatis
 mybatis:
   mapper-locations: com/such/mapper/*.xml
+
+#打印查询日志
+logging:
+  level:
+    com:
+      such:
+        mapper: debug
+
+#mybatis分页
+pagehelper:
+  helper-dialect: mysql
