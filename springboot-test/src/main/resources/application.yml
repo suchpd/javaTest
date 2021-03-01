@@ -1,12 +1,19 @@
 
 #数据库
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/springboot
+#    username: root
+#    password: suchi0.0
+
+#数据库
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/shanghai&useSSL=false
-    url: jdbc:mysql://127.0.0.1:3306/springboot
-    username: root
-    password: suchi0.0
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rm-bp1ovi600uioxw219po.mysql.rds.aliyuncs.com/springboot_test
+    username: such
+    password: Suchi4152
 
 #端口号
 server:
